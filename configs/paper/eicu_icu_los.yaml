@@ -1,0 +1,27 @@
+run:
+  name: eicu_icu_los
+  seed: 42
+paths:
+  data_dir: data/processed/eicu_icu_los_reasonable_3feat_288_cov97
+  artifact_root: runs/eicu_icu_los_seed42
+dataset:
+  input_dim: 3
+  window_size: 288
+  num_classes: 2
+  feature_names: [HR, RR, SpO2]
+model:
+  vq:
+    patch_num: [9, 18, 36]
+training:
+  vq: {iterations: 60000, eval_every: 5000, batch_size: 256, lr: 0.0002}
+  flow: {iterations: 60000, eval_every: 5000, batch_size: 256, lr: 0.0002}
+sampling:
+  batch_size: 256
+  tmg:
+    enabled: true
+    policy: minority_only
+    target_label: 1
+    weight: 0.2
+    background: not_target
+posthoc_selector:
+  enabled: true

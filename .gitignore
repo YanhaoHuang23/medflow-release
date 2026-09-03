@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+runs/
+data/processed/
+*.pt
+*.pth
+*.pkl
+*.npy
+*.csv
+*.log

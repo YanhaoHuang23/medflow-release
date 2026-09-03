@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medflow-release"
+version = "0.1.0"
+description = "Standalone, configuration-driven reproduction code for MedFlow"
+requires-python = ">=3.8"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "PyYAML>=6.0",
+  "scipy>=1.10",
+  "scikit-learn>=1.3",
+  "torch>=2.0",
+  "tqdm>=4.66",
+  "tensorboard>=2.13",
+]
+
+[project.scripts]
+medflow = "medflow_release.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["medflow_release*", "models*", "dataset*", "options*", "utils*", "scripts*"]

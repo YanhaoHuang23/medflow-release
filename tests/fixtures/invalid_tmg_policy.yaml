@@ -1,0 +1,6 @@
+run: {name: invalid}
+paths: {data_dir: /tmp}
+dataset: {input_dim: 1, window_size: 1}
+sampling:
+  tmg:
+    policy: invalid

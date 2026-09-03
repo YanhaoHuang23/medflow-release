@@ -1,0 +1,26 @@
+run:
+  name: apava
+  seed: 42
+paths:
+  data_dir: data/processed/apava_medformer_fixed_16ch_256
+  artifact_root: runs/apava_seed42
+dataset:
+  input_dim: 16
+  window_size: 256
+  num_classes: 2
+  feature_names: [Ch01, Ch02, Ch03, Ch04, Ch05, Ch06, Ch07, Ch08, Ch09, Ch10, Ch11, Ch12, Ch13, Ch14, Ch15, Ch16]
+model:
+  vq:
+    patch_num: [8, 16, 32]
+training:
+  vq: {iterations: 60000, eval_every: 5000, batch_size: 128, lr: 0.0002}
+  flow: {iterations: 60000, eval_every: 5000, batch_size: 128, lr: 0.0002}
+sampling:
+  batch_size: 128
+  tmg:
+    enabled: true
+    # APAVA policy: construct a separate class-conditional bias for each class.
+    policy: per_class
+    target_label: 1
+    weight: 0.2
+    background: not_target
