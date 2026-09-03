@@ -139,12 +139,3 @@ python scripts/preprocess_ptb_tardiff_protocol.py \
   --protocol medformer_code_551530
 ```
 
-## What this release intentionally excludes
-
-- Historical `scripts/run_*` sweep scripts and abandoned variants.
-- `results/`, `output_*`, logs, checkpoints, and PDF/manuscript assets.
-- `TarDiff/`, `external_baselines/`, and other third-party baseline source trees.
-- Restricted clinical data and raw EEG/ECG files.
-
-These remain outside the repository so the public artifact has one auditable
-path per experiment. See `third_party/NOTICE.md` before publishing.
